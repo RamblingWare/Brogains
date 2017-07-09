@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowMouse : MonoBehaviour {
-    void FixedUpdate() {
+    Transform player;
+
+    void Start() {
+        player = GameObject.Find("Player").transform;
+    }
+
+    void Update() {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
 

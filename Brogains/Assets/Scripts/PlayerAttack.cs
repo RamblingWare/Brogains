@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
     bool firing;
-    float bulletSpeed = 8.0f;
-    float fireRate = 0.5f;
+    float bulletSpeed = 16.0f;
+    float fireRate = 0.1f;
     float shotTime;
     public GameObject bullet;
+    public AudioClip shotSound;
+
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start() {
+        audioSource = this.GetComponent<AudioSource>();
         firing = false;
 	}
 	
@@ -38,5 +42,7 @@ public class PlayerAttack : MonoBehaviour {
 
         GameObject bulletSpawn = Instantiate(bullet, spawnPos, Quaternion.identity);
         bulletSpawn.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
+
+        audioSource.PlayOneShot(shotSound);
     }
 }

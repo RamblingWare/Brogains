@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	bool moveUp, moveDown, moveLeft, moveRight;
 	Rigidbody2D rigid;
-	float speed = 2.0f;
+	float speed = 8.0f;
 
 	// Use this for initialization
 	void Start() {
